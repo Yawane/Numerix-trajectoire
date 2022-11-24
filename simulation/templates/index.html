@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulateur de Trajectoires</title>
+</head>
+<body>
+    <header>Simulateur de trajectoire tadaaa</header>
+    <main class="content">
+
+        <div class="top-content" style="background-color: antiquewhite">
+            <nav>
+                <a href="#BurgerMenu-Graphique">Graphique</a>
+                <a href="#BurgerMenu-Simulation">Simulation</a>
+                <ul>
+                    <li>Détails des propriétés graphiques importantes</li>
+                    <li>Détails des propriétés de simulaiton importantes</li>
+                </ul>
+            </nav>
+
+        </div>
+
+        
+        <div class="simulation-content">
+            <form method="POST">
+                {% csrf_token %}
+                <section class="info" style="background-color: floralwhite">
+                    {% csrf_token %}
+                    <div class="caracteristic">
+                        <h3>Partie I</h3>
+                        <ul>
+                            <li><label for="item1">integer</label><input type="number" name="item1"></li>
+                            <li><label for="item2">float</label><input type="number" step="0.1" name="item2"></li>
+                            <li><label for="item3">text</label><input type="text" name="item3"></li>
+                            <li><label for="item4">options</label>
+                                <select name="item4" id="list">
+                                    <option value="option1">option1</option>
+                                    <option value="option2">option2</option>
+                                    <option value="option3">option3</option>
+                                </select>
+                            </li>
+                        </ul>
+
+                        <h3>Partie II</h3>
+                        <ul>
+                            <li><label for="item5">ckeckbox</label><input type="checkbox" name="item5" id="item5"></li>
+                            <li><label for="item6">color</label><input type="color" name="item6" id="item6"></li>
+                            <li><label for="item7">radio1</label><input type="radio" name="item7" id="item7"></li>
+                            <li><label for="item7.1">radio2</label><input type="radio" name="item7" id="item7.1"></li>
+                            <li><label for="item8">range</label><input type="range" min="0.75" max="2" step="0.125" name="item8"></li>
+                            <li><label for="item9">date</label><input type="date" name="item9" id="item9"></li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <section class="validate" style="background-color: lightgrey">
+                    <h3>Partie III</h3>
+                    <ul>
+                        <li><button type="submit">Lancer</button></li>
+                        <li><button type="submit">Effacer</button></li>
+                        <li><button type="submit">Exporter</button></li>
+                    </ul>
+                </section>
+            </form>
+            <section class="canvas">
+                <p>image.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer style="background-color: aliceblue">
+        <hr>
+        {% for item in items %}
+            <p>{{ item }}</p>
+        {% endfor %}
+
+    </footer>
+
+</body>
+</html>
